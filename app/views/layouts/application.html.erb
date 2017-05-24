@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Myapp</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  <div class="container">
+  <div class="row">
+  <div class="col-md-8">
+    <%= yield %>
+    </div>
+    <div class="col-md-4">
+    <div class="panel panel-info">
+  	<div class="panel-heading">Actions</div>
+  	<div class="panel-body">
+  	<%if @pic.present?%>
+  	<%= form_for @pic, url: pic_path(@pic),  html: {class: "form-group", method: :put} do |f| %>
+  
+  	
+  	<%= label_tag(:picture, "Background") %></br>
+  	<%= label_tag(@pic.picture_file_name) %>
+    <%= f.file_field :picture %>
+  	<%= f.submit "Save background", class:'btn btn-primary bt-create' %>
+  	<%end%>
+  	<%else%>
+  	<%= form_for @pic_new, url: pics_path, html: {class: "form-group", method: :post} do |f| %>
+  
+  
+  	<%= label_tag(:picture, "Background") %>
+    <%= f.file_field :picture %>
+  	<%= f.submit "Save background", class:'btn btn-primary bt-create' %>
+  	<%end%>
+
+  	<%end%>
+  	<%=link_to 'New map element', new_map_path, class:'btn btn-primary newbtn', remote: true%>
+   	 
+   	 <div id="mapnew">
+   	 	
+   	 </div>
+   	 <div id="editmap">
+   	 </div>
+  	</div>
+	</div>
+  		
+
+
+
+    </div>
+    </div>
+    </div>
+  </body>
+</html>

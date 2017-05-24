@@ -1,0 +1,10 @@
+
+<%= form_for map, url: {action: "create"}, html: {class: "nifty_form"} do |f| %>
+  <%= f.text_field :title %> </br>
+  <%= f.text_field :member_1 %> </br>
+  <%= f.text_field :member_2 %> </br>
+  <%= f.text_field :member_3 %> </br>
+  <%= f.text_field :top %> </br>
+  <%= f.text_field :left %> </br>
+  <%= f.submit "Create" %>
+<% end %>

@@ -1,0 +1,10 @@
+<div class="shiet">
+<%= image_tag @pic.picture,  class:'map'%>
+<%@map.each do |f|%>
+<%=link_to edit_map_path(f), remote: true do%>
+<div id="<%=f.id%>" style="top:<%=f.top%>px; left:<%=f.left%>px; height:<%=f.height%>px; width:<%=f.width%>px; border-radius:<%=f.radius%>; transform: rotate(<%=f.angle%>deg); " class="oneofmap">
+
+</div>
+<%end%>
+<%end%>
+</div>

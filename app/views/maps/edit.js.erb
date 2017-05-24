@@ -1,0 +1,59 @@
+var newbtn = $('.newbtn');
+var shiet = $('.shiet');
+var newmap = $('#mapnew');
+var editmap = $('#editmap');
+var mapelement = $('.oneofmap');
+//newbtn.hide();
+//newmap.remove();
+editmap.html(
+"<%= j(render 'maps/editmap', map: @map) %>"
+	);
+var current_map = shiet.find("[id='" + "<%= @map.id %>" + "']");
+mapelement.removeClass('current_map');
+current_map.addClass('current_map');
+current_map.draggable({ containment: ".shiet", scroll: false });
+current_map.mousemove(function( ) {
+var position = current_map.position();
+var positionTop = $('.top_e').val(position.top);
+var positionLeft = $('.left_e').val(position.left);  
+});
+
+$(this).keyup(function(){
+	var height = $('.height_e').val();
+	var width = $('.width_e').val();
+	var radius = $('.radius_e').val();
+	var angle = $('.angle_e').val();
+	current_map.css({ transform: 'rotate(' + angle + 'deg)'});
+	current_map.css("height", height);
+	current_map.css("width", width);
+	current_map.css("border-radius", radius);
+});
+
+
+ $( function() {
+    $( ".radio-edit_e" ).checkboxradio();
+    $( ".new-e" ).controlgroup();
+
+    $('#sq').click(function(){
+    current_map.css("height", 30);
+	current_map.css("width", 30);
+	$('.height_e').val(30);
+	$('.width_e').val(30);
+    });
+
+    $('#rec').click(function(){
+    current_map.css("height", 20);
+	current_map.css("width", 30);
+	$('.height_e').val(20);
+	$('.width_e').val(30);
+    });
+
+    $('#rerec').click(function(){
+    current_map.css("height", 30);
+	current_map.css("width", 20);
+	$('.height_e').val(30);
+	$('.width_e').val(20);
+    });
+
+
+  } );

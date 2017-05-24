@@ -1,0 +1,64 @@
+var newmap = $('#mapnew');
+var shiet = $('.shiet');
+var newbtn = $('.newbtn');
+newbtn.hide();
+newmap.append(
+"<%= j(render 'maps/map', map: @map) %>"
+	);
+shiet.append(
+	"<%= j(render 'maps/elem') %>"
+	);
+
+var ele = $( "#eleMap" );
+//var position = $( "#eleMap" ).position();
+//var positionTop = $('.top').val(position.top);
+//var positionLeft = $('.left').val(position.left);
+ele.draggable({ containment: ".shiet", scroll: false });
+
+ele.mousemove(function( ) {
+var position = $( "#eleMap" ).position();
+var positionTop = $('.top').val(position.top);
+var positionLeft = $('.left').val(position.left); 
+});
+
+//var width = $('.width').val();
+//var heigh = $('.height').val();
+//var radius = $('.radius').val();
+$(this).keyup(function(){
+	var height = $('.height').val();
+	var width = $('.width').val();
+	var radius = $('.radius').val();
+	var angle = $('.angle').val();
+	ele.css({ transform: 'rotate(' + angle + 'deg)'});
+	ele.css("height", height);
+	ele.css("width", width);
+	ele.css("border-radius", radius);
+});
+
+ $( function() {
+    $( ".radio-edit" ).checkboxradio();
+    $( ".new-r" ).controlgroup();
+
+    $('#sq').click(function(){
+    ele.css("height", 30);
+	ele.css("width", 30);
+	$('.height').val(30);
+	$('.width').val(30);
+    });
+
+    $('#rec').click(function(){
+    ele.css("height", 20);
+	ele.css("width", 30);
+	$('.height').val(20);
+	$('.width').val(30);
+    });
+
+    $('#rerec').click(function(){
+    ele.css("height", 30);
+	ele.css("width", 20);
+	$('.height').val(30);
+	$('.width').val(20);
+    });
+
+
+  } );

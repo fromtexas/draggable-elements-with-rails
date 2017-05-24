@@ -1,0 +1,52 @@
+// Place all the styles related to the maps controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+$current_map: 1px 0px 19px 3px rgba(245,148,103,1);
+
+.map{
+	width:100%;
+	
+}
+body{
+	overflow-x:hidden;
+}
+.bt-create{
+	display: block;
+	margin: 0 auto;
+	margin-top: 5px;
+}
+.panel-body{
+	input{
+		margin-top: 5px;
+	}
+}
+
+#eleMap{
+	cursor: pointer;
+	position: absolute;
+	left: 30px;
+    top: 20px;
+	height: 40px;
+	width: 40px;
+	border: 3px solid #e24d1b;
+	box-shadow: $current_map;
+
+}
+.oneofmap{
+
+	position: absolute;
+	
+	height: 40px;
+	width: 40px;
+	border: 3px solid #482950;
+}
+.btn {
+	width: 100%;
+}
+
+.current_map{
+	box-shadow: $current_map;
+}
+.img-a{
+	width: 100%;
+}

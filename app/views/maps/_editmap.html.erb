@@ -1,0 +1,49 @@
+<h3 class="text-center">EDIT</h3>
+
+<%=link_to 'DELETE?', map_path(map), class:'btn btn-danger', remote: true, method: 'delete'%>
+<div class="widget">
+ 
+  <h2>Forms</h2>
+  <fieldset class="new-e">
+    <legend>Select a form: </legend>
+    <label id="sq" for="radio-1">Squer</label>
+    <input class="radio-edit_e" type="radio" name="radio-1" id="radio-1">
+    <label id="rec" for="radio-2">Rectangle</label>
+    <input class="radio-edit_e" type="radio" name="radio-1" id="radio-2">
+    <label id="rerec" for="radio-3">Rectangle(revert)</label>
+    <input class="radio-edit_e" type="radio" name="radio-1" id="radio-3">
+  </fieldset>
+</div>
+
+<%= form_for map, url: {action: "update"}, html: {class: "form-group"} do |f| %>
+  
+  <%= label_tag(:title, "Title") %>
+  <%= f.text_field :title, class:"form-control", placeholder:'title' %>
+  <%= label_tag(:type_of_shit, "Type") %>
+  <%= f.text_field :type_of_shit, class:"form-control", placeholder:'title' %>
+  <%= label_tag(:member_1, "Memeber") %> 
+  <%= f.text_field :member_1, class:"form-control", placeholder:'member_1' %>
+  <%= label_tag(:member_2, "Memeber") %> 
+  <%= f.text_field :member_2, class:"form-control", placeholder:'member_2' %> 
+  <%= label_tag(:member_3, "Memeber") %>
+  <%= f.text_field :member_3, class:"form-control", placeholder:'member_3' %> 
+  <%= label_tag(:angle, "Angle") %>
+  <%= f.text_field :angle, class:"form-control angle_e", placeholder:'angle' %>
+  <%= label_tag(:top, "Position(top)") %>
+  <%= f.text_field :top, class:"form-control top_e", placeholder:'top' %> 
+  <%= label_tag(:left, "Position(left)") %>
+  <%= f.text_field :left, class:"form-control left_e", placeholder:'left' %>
+  <%= label_tag(:width, "Width") %>
+  <%= f.text_field :width, class:"form-control width_e", placeholder:'width' %>
+  <%= label_tag(:height, "Height") %> 
+  <%= f.text_field :height, class:"form-control height_e", placeholder:'height' %>
+  <%= label_tag(:radius, "Radius") %>
+  <%= f.text_field :radius, class:"form-control radius_e", placeholder:'radius' %>
+  <%= label_tag(:avatar, "Avatar") %>
+  <%= image_tag map.avatar, class:'img-a'%>
+  <%= f.file_field :avatar %>
+  <%= label_tag(:coffee_pic, "Coffeehouse pic") %>
+  <%= image_tag map.coffee_pic, class:'img-a'%>
+  <%= f.file_field :coffee_pic %>
+  <%= f.submit "Save", class:'btn btn-primary bt-create' %>
+<% end %>
